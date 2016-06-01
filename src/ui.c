@@ -23,7 +23,8 @@ Arguments create_Arguments() {
         .cmd = NULL,
         .pos = (char **)malloc(MAX_POS * sizeof(char *)),
         .test = false,
-	    .arg_max = MAX_POS
+	    .arg_max = 0,
+		.db_status = 0
     };
     memset(args.pos, 0, MAX_POS * sizeof(char *));
     return args;
@@ -93,52 +94,56 @@ parse_opt (int key, char *arg, struct argp_state *state)
   /* Get the input argument from argp_parse, which we
      know is a pointer to our arguments structure. */
   struct Arguments *arguments = state->input;
+  int db_state = arguments->db_status;
   int arg_pos;
   FILE * temp;
-
   switch (key)
     {
     case 'd':
+	  if(db_state == 2) argp_failure(state,1,0,"invalid argument");
+	  arguments->db_status = 1;
+      arguments->arg_max = 3;
       temp = fopen(arg, "r");
       check_file(temp, arg);
 	  fclose(temp);
 	  arguments->db_filename = strdup(arg);
 	  break;
     case 's':
-      arguments->arg_max =0;
+	  if(db_state == 1) argp_failure(state,1,0,"invalid argument");
+	  arguments->db_status =2;
       arguments->synfile = fopen(arg,"r");
       check_file(arguments->synfile, arg);
       break;
     case 'i':
-      arguments->arg_max =0;
+	  if(db_state == 1) argp_failure(state,1,0,"invalid argument");
+	  arguments->db_status =2;
       arguments->intfile = fopen(arg,"r");
       check_file(arguments->intfile, arg);
       break;
     case 'f':
-      arguments->arg_max =0;
+	  if(db_state == 1) argp_failure(state,1,0,"invalid argument");
+	  arguments->db_status =2;
       arguments->hitfile = fopen(arg,"r");
       check_file(arguments->hitfile, arg);
       break;
 	case 'c': 
-      arguments->arg_max =0;
+	  if(db_state == 1) argp_failure(state,1,0,"invalid argument");
+	  arguments->db_status =2;
       arguments->cmd = strdup(arg);
       break;
 	
 	case ARGP_KEY_ARG:
-      arg_pos =  MAX_POS - arguments->arg_max;
-      arguments->arg_max --;
-	  if(arguments->arg_max >=0)
-      	arguments->pos[arg_pos] = arg;
-	  
+      	arg_pos =  MAX_POS - arguments->arg_max;
+     	arguments->arg_max --;
+	  	if(arguments->arg_max >=0)
+      		arguments->pos[arg_pos] = arg;
 	  break;
 
     case ARGP_KEY_END:
 	  if(arguments->arg_max > 0){
-		argp_failure(state,1,0,"too few arguements");
-		argp_usage(state);
+		argp_failure(state,1,0,"Too few arguements");
 	  } else if (arguments->arg_max < 0){
-        argp_failure(state,1,0,"too many arguments");
-		argp_usage(state);
+        argp_failure(state,1,0,"Too many arguments");
 	  }
       break;
 

@@ -14,6 +14,7 @@ typedef struct Arguments {
     char ** pos;
     bool test;
 	int arg_max;
+    int db_status;
 } Arguments;
 
 void close_Arguments(Arguments arg);
