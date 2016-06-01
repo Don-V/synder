@@ -13,6 +13,7 @@ typedef struct Arguments {
     char * cmd;
     char ** pos;
     bool test;
+	int arg_max;
 } Arguments;
 
 void close_Arguments(Arguments arg);

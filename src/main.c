@@ -30,11 +30,9 @@ int main(int argc, char * argv[]){
 
     // Build database and exit
     if(args.db_filename){
-        if(!(args.pos[0] && args.pos[1] && args.pos[2]))
-            print_help();
         char cmd[256];
         sprintf(cmd,
-                "prepare-data.sh -a %s -b %s -i %s -d %s",
+                "util/prepare-data.sh -a %s -b %s -i %s -d %s",
                 args.pos[0], args.pos[1], args.db_filename, args.pos[2]);
         system(cmd);
         exit(EXIT_SUCCESS);
@@ -46,7 +44,6 @@ int main(int argc, char * argv[]){
 
     if(!(syn || args.test)){
         printf("Nothing to do ...\n");
-        print_help();
     }
 
     if(args.hitfile){
@@ -65,7 +62,6 @@ int main(int argc, char * argv[]){
         }
         else{
             printf("Command '%s' not recognized\n", args.cmd);
-            print_help();
         }
     }
 
