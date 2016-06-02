@@ -71,7 +71,7 @@ const char *argp_program_bug_address =
 static char doc[] =
   "Synder -- My Gods Its Full of Synteny\n\vIf you're happy and you know it clap your hands.";
 
-static char args_doc[]= "-d SYNTENY_FILE QUERY_TARGET DEST_DIR\n-i GFF_FILE -s SYNTENY_DATABASE -c MODE";
+static char args_doc[]= "-d SYNTENY_FILE QUERY_TARGET DEST_DIR\n-i GFF_FILE -s SYNTENY_DATABASE -c MODE\n-f HIT_FILE -s SYNTENY_DATABASE -c filter";
 
 static struct argp_option options[]={
   
