@@ -25,6 +25,21 @@ int main(int argc, char *argv[])
 
   contiguous_query(syn, query_file, false);
 
+  printf("\n\n");
+
+  analysis_filter(syn, "sample-inputs/hits.syn", single_advocate, 5000);
+
+  printf("\n\n");
+
+  analysis_count(syn, query_file);
+
+  printf("\n\n");
+
+  analysis_map(syn, query_file);
+
+  fclose(db_file);
+  fclose(query_file);
+
   if (syn)
     free_synmap(syn);
 
