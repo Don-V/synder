@@ -18,27 +18,30 @@ int main(int argc, char *argv[])
   Synmap *syn = NULL;
 
   FILE * db_file = fopen("db/a_b.txt", "r");
+  FILE * query_file = fopen("sample-inputs/at.gff", "r");
+  FILE * hit_file = fopen("sample-inputs/hits.syn", "r");
 
   syn = load_synmap(db_file, 0);
 
-  FILE * query_file = fopen("sample-inputs/at.gff", "r");
+  printf("contiguous_query\n");
 
   contiguous_query(syn, query_file, false);
 
   printf("\n\n");
 
-  analysis_filter(syn, "sample-inputs/hits.syn", single_advocate, 5000);
+  printf("analysis_filter\n");
+  int width = 5000;
+  analysis_filter(syn, hit_file, single_advocate, &width);
 
   printf("\n\n");
 
+  rewind(query_file);
+  printf("analysis_count\n");
   analysis_count(syn, query_file);
-
-  printf("\n\n");
-
-  analysis_map(syn, query_file);
 
   fclose(db_file);
   fclose(query_file);
+  fclose(hit_file);
 
   if (syn)
     free_synmap(syn);
