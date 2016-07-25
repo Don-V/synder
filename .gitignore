@@ -5,13 +5,5 @@ README.pdf
 *.gch
 *.o
 *.a
-db
 
 doc
-
-big-sample-inputs/*syn
-big-sample-inputs/*gff
-big-sample-inputs/*tab
-
-# my temp file prefix
-z*

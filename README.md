@@ -1,4 +1,5 @@
-**This program is under development, 
+** This is a hard-coded variant of Synder **
+
 
 # Synder
 
