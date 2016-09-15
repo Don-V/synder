@@ -1,0 +1,39 @@
+body{
+    background-color: floralwhite;
+}
+
+footer{
+    text-align: center;
+}
+
+li .nav-link{
+    color: #1f1f14;
+}
+
+a.nav-link:hover{
+    color: #708090;
+}
+
+footer .bt-github{
+    color: #777;
+    font-size: 1.4em;
+    
+}
+
+footer .bt-github:hover{
+    font-size: 1.5em;
+    transition: all 1000ms ease;
+    color: #000;
+    transform: rotateY(360deg); /*comment this to remove rotation*/
+}
+
+
+/*
+.fa-github:hover{
+    transition: all 1500ms ease;
+    color: #000;
+    transform: rotateY(360deg);
+}
+*/
+
+
