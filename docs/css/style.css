@@ -12,6 +12,7 @@ li .nav-link{
 
 a.nav-link:hover{
     color: #708090;
+    font-size: 1.2em;
 }
 
 footer .bt-github{
@@ -21,7 +22,7 @@ footer .bt-github{
 }
 
 footer .bt-github:hover{
-    font-size: 1.5em;
+    font-size: 1.0em;
     transition: all 1000ms ease;
     color: #000;
     transform: rotateY(360deg); /*comment this to remove rotation*/

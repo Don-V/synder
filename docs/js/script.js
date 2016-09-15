@@ -7,6 +7,6 @@ var placeFooterTime = function () {
     footer.innerHTML = footer.innerHTML[0] + " " + thisYear + footer.innerHTML.substring(1);
 };
 
-$("document").ready(function (){
+$("document").ready(function () {
     placeFooterTime();
 });
