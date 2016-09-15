@@ -8,4 +8,5 @@ PUBLIC
 **Fix footer to become scrollable on mobile devices, probably through js**
 
 **Fix left margin of content of website on mobile devices, xs screen  **
+**Hide nav on xs-size usingf those three bars - write a media query to make the bottom not-fixed on xs size**
 

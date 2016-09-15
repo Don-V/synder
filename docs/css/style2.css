@@ -1,5 +1,9 @@
 body{
-    background-color: floralwhite;
+    background-color: #e6fff5;
+}
+
+header{
+    background-color: aquamarine;
 }
 
 footer{
@@ -11,17 +15,8 @@ li .nav-link{
 }
 
 a.nav-link:hover{
-    transition: all 200ms ease; /* Comment to remove navigation animation */
-    color: #00663d;/*#708090;*/
-    font-size: 1.1em;
-}
-
-header .fa-envira{
-    color: darkgreen;
-}
-
-header .welcome{
-    margin-left: 50px;
+    color: #708090;
+    font-size: 1.2em;
 }
 
 footer .bt-github{
@@ -31,7 +26,7 @@ footer .bt-github{
 }
 
 footer .bt-github:hover{
-    font-size: 1.6em;
+    font-size: 1.0em;
     transition: all 1000ms ease;
     color: #000;
     transform: rotateY(360deg); /*comment this to remove rotation*/
